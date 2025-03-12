@@ -87,64 +87,66 @@ function New-SnipeitAsset() {
 
     Param(
 
-        [parameter(ParameterSetName='Create asset',mandatory = $true)]
-        [parameter(ParameterSetName='Checkout asset when creating',mandatory = $true)]
+        [parameter(ParameterSetName='Create asset',mandatory = $true, ValueFromPipelineByPropertyName = $true)]
+        [parameter(ParameterSetName='Checkout asset when creating',mandatory = $true, ValueFromPipelineByPropertyName = $true)]
         [int]$status_id,
 
-        [parameter(mandatory = $true)]
+        [parameter(mandatory = $true, ValueFromPipelineByPropertyName = $true)]
         [int]$model_id,
 
-        [parameter(mandatory = $false)]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [string]$name,
 
-        [parameter(mandatory = $false)]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [Alias('tag')]
         [string]$asset_tag,
 
-        [parameter(mandatory = $false)]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [string]$serial,
 
-        [parameter(mandatory = $false)]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [int]$company_id,
 
-        [parameter(mandatory = $false)]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [string]$order_number,
 
-        [parameter(mandatory = $false)]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [string]$notes,
 
-        [parameter(mandatory = $false)]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [int]$warranty_months,
 
-        [parameter(mandatory = $false)]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [string]$purchase_cost,
 
-        [parameter(mandatory = $false)]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [datetime]$purchase_date,
 
-        [parameter(mandatory = $false)]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [int]$supplier_id,
 
-        [parameter(mandatory = $false)]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [int]$rtd_location_id,
 
         [ValidateScript({Test-Path $_})]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [string]$image,
 
-        [parameter(ParameterSetName='Checkout asset when creating',mandatory = $true)]
+        [parameter(ParameterSetName='Checkout asset when creating',mandatory = $true, ValueFromPipelineByPropertyName = $true)]
         [int]$assigned_id,
 
-        [parameter(ParameterSetName='Checkout asset when creating',mandatory = $true)]
+        [parameter(ParameterSetName='Checkout asset when creating',mandatory = $true, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("location","asset","user")]
         [string] $checkout_to_type = "user",
 
-        [parameter(mandatory = $false)]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [string]$url,
 
-        [parameter(mandatory = $false)]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [string]$apiKey,
 
         [Alias('CustomValues')]
+        [parameter(mandatory = $false, ValueFromPipelineByPropertyName = $true)]
         [hashtable] $customfields
     )
 
